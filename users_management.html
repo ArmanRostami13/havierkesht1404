@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت کاربران | هاویرکشت</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-page">
+
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-logo">سامانه هاویرکشت</div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">🏠 داشبورد</a>
+                <a href="farmers_operations.html" class="nav-item">👨‍🌾 عملیات کشاورز</a>
+                <a href="users_management.html" class="nav-item active">👤 مدیریت کاربران</a>
+                <div class="nav-item logout-item" id="logoutBtn" style="color: #ff4d4d; cursor: pointer; margin-top: 20px;">🚪 خروج</div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="user-profile">
+                    <span>مدیریت کاربران سیستم</span>
+                    <div class="avatar">👤</div>
+                </div>
+                <div class="search-section">
+                    <div class="search-wrapper">
+                        <input type="text" id="userSearch" placeholder="جستجوی نام، ایمیل یا نام کاربری...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div id="usersList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 10px;">
+                    <p style="grid-column: 1/-1; text-align: center;">در حال بارگذاری لیست کاربران...</p>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <p>طراحی شده توسط شرکت هوشمند پرداز هاویر</p>
+                <p>© ۲۰۲۵ سامانه هاویرکشت</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="users_management.js"></script>
+</body>
+</html>

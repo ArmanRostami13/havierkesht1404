@@ -1,0 +1,121 @@
+/* --- استایل‌های اختصاصی جداول و کارت‌های مدیریت --- */
+
+/* کانتینر اصلی جداول برای حفظ فاصله */
+.table-container {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    margin-top: 20px;
+    overflow-x: auto; /* برای نمایش درست در موبایل */
+}
+
+/* استایل جدول داده‌ها */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.data-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: bold;
+    padding: 15px;
+    text-align: right;
+    border-bottom: 2px solid #edf2f7;
+}
+
+.data-table td {
+    padding: 12px 15px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.2s;
+}
+
+.data-table tr:hover td {
+    background-color: #f1f5f9;
+}
+
+/* نشانگر وضعیت (Badge) */
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.badge-success {
+    background-color: #def7ec;
+    color: #03543f;
+}
+
+.badge-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+/* استایل کارت‌های مدیریت کاربران */
+.user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.user-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.user-avatar-circle {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(45deg, var(--blue), var(--purple));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 15px;
+}
+
+.user-card h3 {
+    color: var(--text-dark);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.user-card p {
+    color: #718096;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* دکمه‌های عملیاتی */
+.action-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    margin: 0 2px;
+    transition: 0.3s;
+}
+
+.btn-edit { background: #e0f2fe; color: #0284c7; }
+.btn-delete { background: #fee2e2; color: #dc2626; }
+
+.btn-edit:hover { background: #0284c7; color: white; }
+.btn-delete:hover { background: #dc2626; color: white; }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت کشاورزان | هاویرکشت</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-page">
+
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-logo">سامانه هاویرکشت</div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">🏠 داشبورد</a>
+                <a href="farmers_operations.html" class="nav-item active">👨‍🌾 عملیات کشاورز</a>
+                <a href="users_management.html" class="nav-item">👤 مدیریت کاربران</a>
+                <div class="nav-item logout-item" id="logoutBtn" style="color: #ff4d4d; cursor: pointer; margin-top: 20px;">🚪 خروج</div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="user-profile"><span>لیست کشاورزان</span><div class="avatar">👤</div></div>
+                <div class="search-section">
+                    <div class="search-wrapper">
+                        <input type="text" id="farmerSearch" placeholder="جستجوی نام، کد ملی یا آدرس...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="table-container" style="background: white; border-radius: 12px; padding: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); overflow-x: auto;">
+                    <table class="data-table" style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: #f8f9fa;">
+                                <th style="padding: 12px; text-align: right;">نام کامل</th>
+                                <th style="padding: 12px; text-align: right;">کد ملی</th>
+                                <th style="padding: 12px; text-align: right;">شماره تماس</th>
+                                <th style="padding: 12px; text-align: right;">آدرس</th>
+                                <th style="padding: 12px; text-align: right;">عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="farmersList">
+                            <tr><td colspan="5" style="text-align: center; padding: 30px;">در حال بارگذاری اطلاعات...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="farmers_operations.js"></script>
+</body>
+</html>

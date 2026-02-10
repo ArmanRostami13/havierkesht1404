@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>داشبورد هاویرکشت</title>
+    <title>پنل مدیریت | هاویرکشت</title>
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body class="dashboard-page">
@@ -12,121 +12,122 @@
         <aside class="sidebar">
             <div class="sidebar-logo">سامانه هاویرکشت</div>
             <nav class="sidebar-nav">
-                <div class="nav-item active">🏠 داشبورد</div>
-                <div class="nav-item">📊 داده های اولیه <span class="arrow">⌄</span></div>
-                <div class="nav-item">📝 عملیات پیمانکار <span class="arrow">⌄</span></div>
-                <div class="nav-item">👨‍🌾 عملیات کشاورز</div>
-                <div class="nav-item">📄 صورتحساب کشاورزان</div>
-                <div class="nav-item">📈 گزارش گیری <span class="arrow">⌄</span></div>
-                <div class="nav-item">💬 مدیریت ارسال پیامک <span class="arrow">⌄</span></div>
-                <div class="nav-item">🚚 ثبت بار های آماده حمل</div>
-                <div class="nav-item">⚙️ تنظیمات <span class="arrow">⌄</span></div>
-                <div class="nav-item">🎧 پشتیبانی <span class="arrow">⌄</span></div>
-                <div class="nav-item logout-item" id="logoutBtn" style="color: #ff4d4d; cursor: pointer; margin-top: 20px;">🚪 خروج از سامانه</div>
+                <a href="dashboard.html" class="nav-item active">🏠 داشبورد</a>
+                
+                <details class="nav-dropdown">
+                    <summary class="nav-item">📊 داده های اولیه <span class="arrow">⌄</span></summary>
+                    <div class="dropdown-content">
+                        <a href="#">ثبت کالا</a>
+                        <a href="#">تعریف انبار</a>
+                    </div>
+                </details>
+
+                <details class="nav-dropdown">
+                    <summary class="nav-item">📝 عملیات پیمانکار <span class="arrow">⌄</span></summary>
+                    <div class="dropdown-content">
+                        <a href="#">ثبت قرارداد</a>
+                        <a href="#">لیست تسویه‌ها</a>
+                    </div>
+                </details>
+                
+                <a href="farmers_operations.html" class="nav-item">👨‍🌾 عملیات کشاورز</a>
+                <a href="bills.html" class="nav-item">📄 صورتحساب کشاورزان</a>
+                
+                <details class="nav-dropdown">
+                    <summary class="nav-item">⚙️ تنظیمات <span class="arrow">⌄</span></summary>
+                    <div class="dropdown-content">
+                        <a href="users_management.html">👤 مدیریت کاربران</a>
+                        <a href="#">پروفایل من</a>
+                    </div>
+                </details>
+
+                <a href="#" class="nav-item">🎧 پشتیبانی</a>
+                
+                <div class="nav-item logout-item" id="logoutBtn">🚪 خروج از سامانه</div>
             </nav>
         </aside>
 
         <main class="main-content">
             <header class="top-nav">
                 <div class="user-profile">
-                    <span>پیمانکار</span>
+                    <div class="top-icons">
+                        <span title="حالت شب">☀️</span>
+                        <span title="اعلان‌ها">🔔</span>
+                    </div>
+                    <span>پیمانکار عزیز، خوش آمدید</span>
                     <div class="avatar">👤</div>
-                    <div class="top-icons">⚙️ 🔔 ☀️</div>
                 </div>
                 <div class="search-section">
                     <div class="search-wrapper">
-                        <input type="text" placeholder="صفحه مورد نظر را جستجو کنید...">
+                        <input type="text" placeholder="جستجو در سامانه...">
                         <span class="search-icon">🔍</span>
                     </div>
                 </div>
             </header>
 
             <div class="content-body">
-                <div class="crop-year-container">
-                    <span class="crop-year-tag" style="background: #e8f5e9; padding: 5px 15px; border-radius: 20px; color: #2e7d32; font-weight: bold;">
-                        سال زراعی: در حال دریافت...
-                    </span>
+                <div class="info-bar">
+                    <div class="crop-year-tag" id="crop_year_display">
+                        🌾 سال زراعی: <span id="year_value">در حال دریافت...</span>
+                    </div>
                 </div>
 
                 <div class="stats-grid">
-                    <div class="card">
+                    <div class="card border-red">
                         <div class="card-header">
                             <span class="card-title">جمع بدهی به کشاورزان</span>
-                            <span class="card-icon red-icon">⇅</span>
+                            <span class="card-icon red-bg">⇅</span>
                         </div>
                         <div class="card-value red-text" id="total_debt">۰ تومان</div>
                     </div>
-                    <div class="card">
+
+                    <div class="card border-green">
                         <div class="card-header">
                             <span class="card-title">کل تناژ تحویلی</span>
-                            <span class="card-icon green-icon">⚖️</span>
+                            <span class="card-icon green-bg">⚖️</span>
                         </div>
                         <div class="card-value" id="total_tonnage">۰ تن</div>
                     </div>
-                    <div class="card">
+
+                    <div class="card border-blue">
                         <div class="card-header">
                             <span class="card-title">تعداد قراردادها</span>
-                            <span class="card-icon red-icon">📄</span>
+                            <span class="card-icon blue-bg">📄</span>
                         </div>
-                        <div class="card-value" id="farmers_count">۰</div>
+                        <div class="card-value" id="farmers_count">۰ نفر</div>
                     </div>
-                    <div class="card">
+
+                    <div class="card border-red">
                         <div class="card-header">
                             <span class="card-title">مانده حساب پیمانکار</span>
-                            <span class="card-icon red-icon">⛔</span>
+                            <span class="card-icon red-bg">⛔</span>
                         </div>
                         <div class="card-value red-text" id="current_balance">۰ تومان</div>
                     </div>
+                </div>
 
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">سود از بذر</span>
-                            <span class="card-icon green-icon">🌱</span>
-                        </div>
-                        <div class="card-value" id="seed_profit">۰ تومان</div>
+                <div class="stats-grid mini">
+                    <div class="card mini-card">
+                        <span class="mini-title">🌱 سود بذر:</span>
+                        <span id="seed_profit">۰ تومان</span>
                     </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">سود از سم</span>
-                            <span class="card-icon green-icon">🧪</span>
-                        </div>
-                        <div class="card-value" id="pesticide_profit">۰ تومان</div>
+                    <div class="card mini-card">
+                        <span class="mini-title">🧪 سود سم:</span>
+                        <span id="pesticide_profit">۰ تومان</span>
                     </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">کارمزد پیمانکار (۱٪)</span>
-                            <span class="card-icon green-icon">⊕</span>
-                        </div>
-                        <div class="card-value green-text" id="contractor_fee">۰ تومان</div>
+                    <div class="card mini-card">
+                        <span class="mini-title">⊕ کارمزد (۱٪):</span>
+                        <span class="green-text" id="contractor_fee">۰ تومان</span>
                     </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">مانده تا تسویه</span>
-                            <span class="card-icon blue-icon">⏳</span>
-                        </div>
-                        <div class="card-value" id="remaining_settlement">۰ تومان</div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">جمع طلب از کشاورزان</span>
-                            <span class="card-icon blue-icon">💰</span>
-                        </div>
-                        <div class="card-value" id="total_receivable">۰ تومان</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">وضعیت کلی پیمانکار</span>
-                            <span class="card-icon blue-icon">📊</span>
-                        </div>
-                        <div class="card-value red-text" id="overall_status">۰ تومان</div>
+                    <div class="card mini-card">
+                        <span class="mini-title">⏳ مانده تا تسویه:</span>
+                        <span id="remaining_settlement">۰ تومان</span>
                     </div>
                 </div>
             </div>
 
             <footer class="footer">
-                <p>طراحی شده توسط شرکت هوشمند پرداز هاویر</p>
-                <p>© ۲۰۲۵ سامانه هاویرکشت</p>
+                <p>© ۲۰۲۵ سامانه هوشمند هاویرکشت | واحد فناوری اطلاعات</p>
             </footer>
         </main>
     </div>
