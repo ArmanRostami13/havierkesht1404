@@ -22,6 +22,7 @@
                 <div class="nav-item">🚚 ثبت بار های آماده حمل</div>
                 <div class="nav-item">⚙️ تنظیمات <span class="arrow">⌄</span></div>
                 <div class="nav-item">🎧 پشتیبانی <span class="arrow">⌄</span></div>
+                <div class="nav-item logout-item" id="logoutBtn" style="color: #ff4d4d; cursor: pointer; margin-top: 20px;">🚪 خروج از سامانه</div>
             </nav>
         </aside>
 
@@ -42,7 +43,9 @@
 
             <div class="content-body">
                 <div class="crop-year-container">
-                    <span class="crop-year-tag">سال زراعی: در حال دریافت...</span>
+                    <span class="crop-year-tag" style="background: #e8f5e9; padding: 5px 15px; border-radius: 20px; color: #2e7d32; font-weight: bold;">
+                        سال زراعی: در حال دریافت...
+                    </span>
                 </div>
 
                 <div class="stats-grid">
@@ -74,6 +77,7 @@
                         </div>
                         <div class="card-value red-text" id="current_balance">۰ تومان</div>
                     </div>
+
                     <div class="card">
                         <div class="card-header">
                             <span class="card-title">سود از بذر</span>
@@ -102,6 +106,7 @@
                         </div>
                         <div class="card-value" id="remaining_settlement">۰ تومان</div>
                     </div>
+
                     <div class="card">
                         <div class="card-header">
                             <span class="card-title">جمع طلب از کشاورزان</span>
@@ -125,6 +130,7 @@
             </footer>
         </main>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="dashboard.js"></script>
 </body>
