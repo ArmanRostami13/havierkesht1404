@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد هاویرکشت</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-page">
+
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-logo">سامانه هاویرکشت</div>
+            <nav class="sidebar-nav">
+                <div class="nav-item active">🏠 داشبورد</div>
+                <div class="nav-item">📊 داده های اولیه <span class="arrow">⌄</span></div>
+                <div class="nav-item">📝 عملیات پیمانکار <span class="arrow">⌄</span></div>
+                <div class="nav-item">👨‍🌾 عملیات کشاورز</div>
+                <div class="nav-item">📄 صورتحساب کشاورزان</div>
+                <div class="nav-item">📈 گزارش گیری <span class="arrow">⌄</span></div>
+                <div class="nav-item">💬 مدیریت ارسال پیامک <span class="arrow">⌄</span></div>
+                <div class="nav-item">🚚 ثبت بار های آماده حمل</div>
+                <div class="nav-item">⚙️ تنظیمات <span class="arrow">⌄</span></div>
+                <div class="nav-item">🎧 پشتیبانی <span class="arrow">⌄</span></div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="user-profile">
+                    <span>پیمانکار</span>
+                    <div class="avatar">👤</div>
+                    <div class="top-icons">⚙️ 🔔 ☀️</div>
+                </div>
+                <div class="search-section">
+                    <div class="search-wrapper">
+                        <input type="text" placeholder="صفحه مورد نظر را جستجو کنید...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="crop-year-container">
+                    <span class="crop-year-tag">سال زراعی: ۱۴۰۴</span>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">جمع بدهی به کشاورزان</span>
+                            <span class="card-icon red-icon">⇅</span>
+                        </div>
+                        <div class="card-value red-text" id="total_debt">۰ تومان</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">کل تناژ تحویلی کشاورزان</span>
+                            <span class="card-icon green-icon">⚖️</span>
+                        </div>
+                        <div class="card-value" id="total_tonnage">۰ تن</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">تعداد قرارداد کشاورزان</span>
+                            <span class="card-icon red-icon">📄</span>
+                        </div>
+                        <div class="card-value" id="farmers_count">۰</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">مانده فعلی در حساب پیمانکار</span>
+                            <span class="card-icon red-icon">⛔</span>
+                        </div>
+                        <div class="card-value red-text" id="current_balance">۰ تومان</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">سود پیمانکار از بذر</span>
+                            <span class="card-icon green-icon">🌱</span>
+                        </div>
+                        <div class="card-value" id="seed_profit">۰ تومان</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">کارمزد پیمانکار (یک درصد)</span>
+                            <span class="card-icon green-icon">⊕</span>
+                        </div>
+                        <div class="card-value green-text" id="contractor_fee">۰ تومان</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">وضعیت کلی پیمانکار</span>
+                            <span class="card-icon blue-icon">📊</span>
+                        </div>
+                        <div class="card-value red-text" id="overall_status">۰ تومان</div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <p>طراحی شده توسط شرکت هوشمند پرداز هاویر</p>
+                <p>© ۲۰۲۵ سامانه هاویرکشت</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
