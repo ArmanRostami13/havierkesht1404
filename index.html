@@ -1,42 +1,43 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورود به سامانه هاویر کشت</title>
     <link rel="stylesheet" href="style.css">
+    <title>ورود به سامانه</title>
 </head>
 <body class="login-body">
     <div class="login-container">
+        <h2 class="main-title">صفحه ورود</h2>
+        <p class="sub-title">صفحه ورود به سامانه هاویر کشت</p>
+        
         <form id="loginForm">
-            <h1 class="main-title">صفحه ورود</h1>
-            <p class="sub-title">صفحه ورود به سامانه هاویر کشت</p>
-
             <div class="input-group">
                 <label for="username">نام کاربری:</label>
-                <input type="text" id="username" required placeholder="نام کاربری خود را وارد کنید">
-            </div>
-
-            <div class="input-group">
-                <label for="password">رمز عبور:</label>
-                <input type="password" id="password" required placeholder="رمز عبور خود را وارد کنید">
-            </div>
-
-            <div class="remember-me">
-                <input type="checkbox" id="remember">
-                <label for="remember">مرا به یاد داشته باش</label>
-            </div>
-
-            <button type="submit" class="btn-submit">ورود به سامانه</button>
-
-            <div class="login-footer">
-                <p>ورود از طریق</p>
-                <a href="#" class="forgot-pass">پسورد خود را فراموش کرده ام؟</a>
+                <input type="text" id="username" placeholder="نام کاربری خود را وارد کنید" required>
             </div>
             
-            <p id="message"></p>
+            <div class="input-group">
+                <label for="password">رمز عبور:</label>
+                <input type="password" id="password" placeholder="********" required>
+            </div>
+            
+            <div class="remember-me">
+                <label>
+                    <input type="checkbox" id="rememberMe"> مرا به یاد داشته باش
+                </label>
+            </div>
+            
+            <button type="submit" class="btn-submit">ورود به سامانه</button>
+            
+            <div class="login-footer">
+                <p>ورود از طریق</p>
+                <a href="#" class="forgot-pass">پسورد خود را فراموش کرده‌ام؟</a>
+            </div>
+            <div id="message"></div>
         </form>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="login.js"></script>
 </body>
 </html>

@@ -1,61 +1,73 @@
 const BASE_URL = 'https://edu-api.havirkesht.ir';
 
-const loginForm = document.getElementById('loginForm');
-const messageElement = document.getElementById('message');
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    
+    if (!loginForm) return;
 
-loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const submitBtn = loginForm.querySelector('button[type="submit"]');
+        const usernameField = document.getElementById('username');
+        const passwordField = document.getElementById('password');
+        const submitBtn = loginForm.querySelector('.btn-submit');
 
-    const formData = new URLSearchParams();
-    formData.append('username', username);
-    formData.append('password', password);
+        const formData = new URLSearchParams();
+        formData.append('username', usernameField.value);
+        formData.append('password', passwordField.value);
 
-    try {
-        // غیرفعال کردن دکمه و نمایش وضعیت انتظار
-        submitBtn.disabled = true;
-        messageElement.style.color = "#3498db";
-        messageElement.innerText = "در حال برقراری ارتباط...";
+        try {
+            submitBtn.disabled = true;
+            
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({
+                    title: 'در حال بررسی...',
+                    allowOutsideClick: false,
+                    didOpen: () => { Swal.showLoading(); }
+                });
+            }
 
-        const response = await fetch(`${BASE_URL}/token`, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: formData
-        });
+            // تغییر آدرس به /token بر اساس مستندات فرستاده شده
+            const response = await fetch(`${BASE_URL}/token`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            });
 
-        if (response.ok) {
-            const data = await response.json();
-            if (data.access_token) {
+            if (response.ok) {
+                const data = await response.json();
                 localStorage.setItem('access_token', data.access_token);
-                messageElement.style.color = "#2ecc71";
-                messageElement.innerText = "ورود موفق! در حال انتقال...";
-                window.location.href = '/dashboard.html';
+                
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'ورود موفق',
+                        text: 'در حال انتقال به داشبورد...',
+                        timer: 1500,
+                        showConfirmButton: false
+                    }).then(() => {
+                        window.location.href = 'dashboard.html';
+                    });
+                } else {
+                    window.location.href = 'dashboard.html';
+                }
             } else {
-                messageElement.style.color = "#e74c3c";
-                messageElement.innerText = "خطا: توکن معتبر دریافت نشد.";
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.detail || "نام کاربری یا رمز عبور اشتباه است");
             }
-        } else {
-            // مدیریت خطاهای سمت سرور (مثل رمز اشتباه)
-            messageElement.style.color = "#e74c3c";
-            if (response.status === 401) {
-                messageElement.innerText = "نام کاربری یا رمز عبور اشتباه است.";
+
+        } catch (error) {
+            console.error("Login Error:", error);
+            if (typeof Swal !== 'undefined') {
+                Swal.fire('خطا', error.message, 'error');
             } else {
-                messageElement.innerText = "خطا در برقراری ارتباط با سرور (" + response.status + ")";
+                document.getElementById('message').innerText = error.message;
             }
+        } finally {
+            submitBtn.disabled = false;
         }
-    } catch (error) {
-        // مدیریت خطاهای شبکه یا فیلترشکن
-        console.error("Network Error:", error);
-        messageElement.style.color = "#e74c3c";
-        messageElement.innerText = "خطا در شبکه! لطفاً فیلترشکن خود را بررسی کنید.";
-    } finally {
-        // فعال کردن مجدد دکمه در هر حالت (موفق یا شکست)
-        submitBtn.disabled = false;
-    }
+    });
 });
